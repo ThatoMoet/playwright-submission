@@ -1,0 +1,37 @@
+import { expect, type Locator, type Page } from '@playwright/test';
+import { LoginPage } from '../pages/login-page';
+
+
+export class AddEmployeePage {
+  readonly page: Page;
+  readonly PIMLink: Locator;
+  readonly addButton: Locator;
+  readonly firstName: Locator;
+  readonly lastName: Locator;
+  readonly saveButton: Locator;
+
+  constructor(page: Page)
+{
+    this.page= page;
+    this.PIMLink= page.getByRole('link', { name: 'PIM' });
+    this.addButton = page.getByRole('button', { name: ' Add' })
+    this.firstName = page.getByRole('textbox', { name: 'First Name' });
+    this.lastName = page.getByRole('textbox', { name: 'First Name' });
+    this.saveButton = page.getByRole('button', { name: 'Save' });
+
+}
+
+async goto() {
+    await this.page.goto(this.PIMLink);
+  }
+
+  async addEmployee(){
+      await this.addButton.click();
+      this.firstName.click();
+      this.firstName.fill('jessica');
+      this.lastName.click();
+      this.lastName.fill('fude');
+      this.saveButton.click();
+
+  
+}});
