@@ -1,0 +1,33 @@
+{
+  "validEmployees": [
+    {
+      "firstName": "John",
+      "lastName": "Doe"
+    },
+    {
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "employeeId": "67890"
+    }
+  ],
+  "invalidEmployees": [
+    {
+      "firstName": "",
+      "lastName": "Doe",
+      "employeeId": "111",
+      "expectedError": "Required"
+    },
+    {
+      "firstName": "Test",
+      "lastName": "",
+      "employeeId": "222",
+      "expectedError": "Required"
+    },
+    {
+      "firstName": "Test",
+      "lastName": "User",
+      "employeeId": "ABC",
+      "expectedError": "Allows only numbers"
+    }
+  ]
+}
